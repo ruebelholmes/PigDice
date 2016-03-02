@@ -13,6 +13,41 @@ namespace PigDice
         static Random randomNumber = new Random();
         static void Main(string[] args)
         {
+            int turnTotal = 0;
+            int gameTotal = 0;
+            TitleScreen();
+
+            //Loop for Player Turn
+            while (true)
+            {
+                int die = randomNumber.Next(1, 7);
+                Console.WriteLine("You rolled a " + die);
+
+                if (die == 1)
+                {
+                    turnTotal = 0;
+                    Console.WriteLine("You lose your turn");
+                    break;
+                }
+
+                //they rule 2- 6, we add to the turn total
+                turnTotal += die;
+                Console.WriteLine($"Your turn total score is {turnTotal}. you game total is {gameTotal}");
+                Console.WriteLine("Enter (r) to roll again or (b) to bank and end turn.");// ask if bank or roll  
+
+                
+            }
+            // End loop
+
+            gameTotal += turnTotal;
+
+
+
+            Console.ReadLine();
+        }
+
+        private static void TitleScreen()
+        {
             Console.WriteLine("Welcome to pig dice!");
 
             Console.WriteLine("Press Enter key to roll your dice.");
@@ -20,32 +55,7 @@ namespace PigDice
             Console.ReadLine();
 
             Console.Clear();
-
-            Console.WriteLine("Here's Your Number...");
-
-            int die = randomNumber.Next(1, 6);
-
-            Console.WriteLine(die);
-
-            Console.ReadLine();
-
-            var dieRoll = die;
-            var turnTotal = (dieRoll + die);
-            var gameTotal = (turnTotal + die);
-
-            if (die < 2)
-            {
-                Console.WriteLine("You lose your turn");
-            } 
-            else
-            {
-                Console.WriteLine($"Your score is {turnTotal}. Your total score is {gameTotal}");
-                Console.WriteLine("Press enter to roll again.");
-            }
-            Console.ReadLine();
-
-
-       }
+        }
 
         /* 
         //Console.WriteLine("Bank or roll again?");
