@@ -34,7 +34,7 @@ namespace PigDice
                     //they rule 2- 6, we add to the turn total
                     turnTotal += die;
                     Console.WriteLine($"Your turn total score is {turnTotal}. you game total is {gameTotal}");
-                    Console.WriteLine("Enter (r) to roll again or (b) to bank and end turn.");// ask if bank or roll  
+                    Console.WriteLine("Press Enter to roll again or (b) to bank and end turn.");// ask if bank or roll  
                     var userInput = Console.ReadLine();
                     if (userInput == "b")
                     {
@@ -46,11 +46,14 @@ namespace PigDice
                     //}
 
                 }
-                // End loop
+
 
                 gameTotal += turnTotal;
                 turnTotal = 0;
-
+                if (gameTotal >= 100)
+                {
+                    Console.WriteLine("You win!!!!!!!!!!");
+                }
             }
 
 
