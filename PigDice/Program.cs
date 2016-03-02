@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace PigDice
 {
     class Program
@@ -16,30 +15,43 @@ namespace PigDice
             int turnTotal = 0;
             int gameTotal = 0;
             TitleScreen();
-
-            //Loop for Player Turn
-            while (true)
+            while (gameTotal < 100)
             {
-                int die = randomNumber.Next(1, 7);
-                Console.WriteLine("You rolled a " + die);
 
-                if (die == 1)
+                //Loop for Player Turn
+                while (true)
                 {
-                    turnTotal = 0;
-                    Console.WriteLine("You lose your turn");
-                    break;
+                    int die = randomNumber.Next(1, 7);
+                    Console.WriteLine("You rolled a " + die);
+
+                    if (die == 1)
+                    {
+                        turnTotal = 0;
+                        Console.WriteLine("You lose your turn");
+                        break;
+                    }
+
+                    //they rule 2- 6, we add to the turn total
+                    turnTotal += die;
+                    Console.WriteLine($"Your turn total score is {turnTotal}. you game total is {gameTotal}");
+                    Console.WriteLine("Enter (r) to roll again or (b) to bank and end turn.");// ask if bank or roll  
+                    var userInput = Console.ReadLine();
+                    if (userInput == "b")
+                    {
+                        break;
+                    }
+                    //if (userInput == 'r')
+                    //{
+                    //    continue;
+                    //}
+
                 }
+                // End loop
 
-                //they rule 2- 6, we add to the turn total
-                turnTotal += die;
-                Console.WriteLine($"Your turn total score is {turnTotal}. you game total is {gameTotal}");
-                Console.WriteLine("Enter (r) to roll again or (b) to bank and end turn.");// ask if bank or roll  
+                gameTotal += turnTotal;
+                turnTotal = 0;
 
-                
             }
-            // End loop
-
-            gameTotal += turnTotal;
 
 
 
@@ -85,4 +97,5 @@ namespace PigDice
 
     }
 }
+
 
