@@ -13,7 +13,9 @@ namespace PigDice
         {
             int turnTotal = 0;
             int gameTotal = 0;
-            TitleScreen();
+            Console.WriteLine("Welcome to Pig Dice!");
+            Console.WriteLine("Please press Enter to begin.");
+            Console.ReadLine();
             while (gameTotal < 100)
             {
                 //Loop for Player Turn
@@ -41,18 +43,12 @@ namespace PigDice
                 turnTotal = 0;
                 if (gameTotal >= 100)
                 {
-                    Console.WriteLine("You win!!!!!!!!!!");
+                    Console.WriteLine($"You win!!! Your final score is {gameTotal}!!!");
                 }
             }
 
             Console.ReadLine();
         }
-        private static void TitleScreen()
-        {
-            Console.WriteLine("Welcome to Pig Dice!");
-            Console.WriteLine("Press Enter key to roll your dice.");
-            Console.ReadLine();
-            Console.Clear();
         }
         /* 
         //Console.WriteLine("Bank or roll again?");
@@ -80,6 +76,6 @@ namespace PigDice
         //if die == 1 
         //turnTotal*/
     }
-}
+
 
 
