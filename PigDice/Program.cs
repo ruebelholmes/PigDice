@@ -8,7 +8,6 @@ namespace PigDice
     class Program
     {
         public static string Player { get; private set; }
-
         static Random randomNumber = new Random();
         static void Main(string[] args)
         {
@@ -17,20 +16,17 @@ namespace PigDice
             TitleScreen();
             while (gameTotal < 100)
             {
-
                 //Loop for Player Turn
                 while (true)
                 {
                     int die = randomNumber.Next(1, 7);
                     Console.WriteLine("You rolled a " + die);
-
                     if (die == 1)
                     {
                         turnTotal = 0;
                         Console.WriteLine("You lose your turn");
                         break;
                     }
-
                     //they rule 2- 6, we add to the turn total
                     turnTotal += die;
                     Console.WriteLine($"Your turn total score is {turnTotal}. you game total is {gameTotal}");
@@ -40,14 +36,7 @@ namespace PigDice
                     {
                         break;
                     }
-                    //if (userInput == 'r')
-                    //{
-                    //    continue;
-                    //}
-
                 }
-
-
                 gameTotal += turnTotal;
                 turnTotal = 0;
                 if (gameTotal >= 100)
@@ -56,22 +45,15 @@ namespace PigDice
                 }
             }
 
-
-
             Console.ReadLine();
         }
-
         private static void TitleScreen()
         {
-            Console.WriteLine("Welcome to pig dice!");
-
+            Console.WriteLine("Welcome to Pig Dice!");
             Console.WriteLine("Press Enter key to roll your dice.");
-
             Console.ReadLine();
-
             Console.Clear();
         }
-
         /* 
         //Console.WriteLine("Bank or roll again?");
         //Title Screen
@@ -97,7 +79,6 @@ namespace PigDice
         //turnTotal =+ die
         //if die == 1 
         //turnTotal*/
-
     }
 }
 
